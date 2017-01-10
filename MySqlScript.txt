@@ -1,0 +1,34 @@
+SQL for Customer Table:
+
+CREATE TABLE `customer_table` 
+(
+name varchar(100),
+password varchar(100),
+email varchar(100) NOT NULL,
+phone varchar(12),
+PRIMARY KEY (email)
+)
+ENGINE = INNODB
+
+
+
+SQL for Booking Table:
+
+CREATE TABLE `boodking_table` 
+(
+booking_number int NOT NULL AUTO_INCREMENT,
+customer_email varchar(100) NOT NULL,
+passenger_name varchar(100),
+passenger_phone varchar(12),
+address_unit_number varchar(10),
+address_street_number varchar(10),
+address_street_name varchar(100),
+address_suburb_name varchar(100),
+destination_suburb varchar(100),
+pickup_datetime datetime,
+booking_datetime timestamp,
+booking_status varchar(50),
+PRIMARY KEY (booking_number),
+FOREIGN KEY (customer_email) REFERENCES customer_table(email)
+)
+ENGINE = INNODB
